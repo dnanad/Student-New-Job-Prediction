@@ -20,7 +20,8 @@ scopes = [
 ]
 
 credentials = Credentials.from_service_account_file(
-    "students-job-prediction.json",
+    # "students-job-prediction.json",
+    st.secrets["sfjp_service_account"],
     scopes=scopes
 )
 

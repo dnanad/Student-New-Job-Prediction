@@ -131,3 +131,4 @@ students-job-prediction.json
 .pyre/
 
 stud_data.csv
+.streamlit/secrets.toml
