@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 streamlit = "*"
+gspread = "*"
+shillelagh = "*"
+oauth2client = "*"
 
 [dev-packages]
 
