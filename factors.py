@@ -12,6 +12,7 @@ from google.oauth2.service_account import Credentials
 from datetime import datetime
 import gspread
 import json
+from gsheetsdb import connect
 
 scopes = [
     "https://spreadsheets.google.com/feeds",
@@ -21,13 +22,11 @@ scopes = [
 ]
 
 key_dict = json.loads(st.secrets["textkey"])
+credentials = Credentials.from_service_account_info(key_dict, scopes=scopes)
 
-credentials = Credentials.from_service_account_file(
-    # "students-job-prediction.json",
-    key_dict,
-    scopes=scopes
-)
+gc = gspread.authorize(credentials)
 
+# Open the spreadsheet
 gc = gspread.authorize(credentials)
 sheet = gc.open("stud_data").sheet1
 # The header

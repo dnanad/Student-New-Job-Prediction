@@ -127,6 +127,9 @@ dmypy.json
 credentials.json
 gsheet_credential_stud_data.json
 students-job-prediction.json
+students-job-prediction-copy.json
+
+
 # Pyre type checker
 .pyre/
 
