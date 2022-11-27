@@ -125,6 +125,9 @@ venv.bak/
 .dmypy.json
 dmypy.json
 credentials.json
-
+gsheet_credential_stud_data.json
+students-job-prediction.json
 # Pyre type checker
 .pyre/
+
+stud_data.csv

@@ -19,15 +19,30 @@ scopes = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-path_cred = "C:/Users/DAnand/AppData/Roaming/gspread/credentials.json"
-
 credentials = Credentials.from_service_account_file(
-    path_cred,
+    "students-job-prediction.json",
     scopes=scopes
 )
 
 gc = gspread.authorize(credentials)
 sheet = gc.open("stud_data").sheet1
+# The header
+# header = [
+#     "stream",
+#     "uni",
+#     "grade",
+#     "old_job",
+#     "internship",
+#     "num_experience",
+#     "age",
+#     "thesis",
+#     "projects",
+#     "language",
+#     "network",
+#     "other",
+#     "date"
+# ]
+# sheet.append_row(header)
 
 # function to get current time
 
@@ -99,13 +114,13 @@ if __name__ == "__main__":
         "date"
     ]
     if st.button('Save the information'):
-        with open('stud_data.csv', 'a', newline='') as f_object:
-            # Pass the file object and a list
-            # of column names to DictWriter()
-            # You will get a object of DictWriter
-            dictwriter_object = DictWriter(f_object, fieldnames=field_names)
-            # Pass the dictionary as an argument to the Writerow()
-            dictwriter_object.writerow(input_dict)
-            # collect = [height,sex_no,shoe_size,date_time]
-            sheet.insert_row(input_dict, 2)
+        # with open('stud_data.csv', 'a', newline='') as f_object:
+        #     # Pass the file object and a list
+        # of column names to DictWriter()
+        # You will get a object of DictWriter
+        # dictwriter_object = DictWriter(f_object, fieldnames=field_names)
+        # # Pass the dictionary as an argument to the Writerow()
+        # dictwriter_object.writerow(input_dict)
+        # collect = [height,sex_no,shoe_size,date_time]
+        sheet.insert_row(list(input_dict.values()), 2)
         st.success("Data saved successfully")
