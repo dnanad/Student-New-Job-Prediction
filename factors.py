@@ -11,6 +11,7 @@ from google.oauth2.service_account import Credentials
 
 from datetime import datetime
 import gspread
+import json
 
 scopes = [
     "https://spreadsheets.google.com/feeds",
@@ -19,9 +20,11 @@ scopes = [
     "https://www.googleapis.com/auth/drive"
 ]
 
+key_dict = json.loads(st.secrets["textkey"])
+
 credentials = Credentials.from_service_account_file(
     # "students-job-prediction.json",
-    st.secrets["sfjp_service_account"],
+    key_dict,
     scopes=scopes
 )
 
